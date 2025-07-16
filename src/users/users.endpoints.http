@@ -1,0 +1,13 @@
+GET http://localhost:3130/users/idFirst2/idOptional
+?limit=1
+&offset=10
+
+
+
+POST http://localhost:3130/users
+Content-Type: application/json
+{
+  "name":"name",
+  "email":"email",
+  "password":"password"
+}
