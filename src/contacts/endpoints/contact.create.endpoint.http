@@ -1,0 +1,5 @@
+POST http://localhost:3130/contacts
+Content-Type: application/json
+{
+  "phone":"+989152186234"
+}
