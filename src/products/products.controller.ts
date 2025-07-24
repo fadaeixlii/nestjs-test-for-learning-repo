@@ -1,6 +1,10 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { CreateProductDTO } from './dto/products.create.dto';
 import { SearchDTO } from 'types/search.dto';
+import {
+  ChangeStatusDTO,
+  ChangeStatusParamDTO,
+} from './dto/product.changeStatue.dto';
 
 @Controller('products')
 export class ProductsController {
@@ -12,5 +16,13 @@ export class ProductsController {
   @Get()
   getProduct(@Query() searchDTO: SearchDTO) {
     return searchDTO;
+  }
+
+  @Put('change-status/:productId')
+  changeStatus(
+    @Body() changeStatusDTO: ChangeStatusDTO,
+    @Param() params: ChangeStatusParamDTO,
+  ) {
+    return { changeStatusDTO, params };
   }
 }

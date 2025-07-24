@@ -1,0 +1,5 @@
+PUT http://localhost:3130/products/change-status/bb179e24-466d-4202-98de-3a3c502f6a72
+Content-Type: application/json
+{
+  "status":false
+}
