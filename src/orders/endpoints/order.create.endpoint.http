@@ -1,0 +1,10 @@
+POST http://localhost:3130/orders
+Content-Type: application/json
+{
+ "userId":"bb179e24-466d-4202-98de-3a3c502f6a72",
+ "product":{
+    "productId":"bb179e24-466d-4202-98de-3a3c502f6a72",
+    "name":"name",
+    "quantity":3
+ }
+}
