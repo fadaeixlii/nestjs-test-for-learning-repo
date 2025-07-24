@@ -1,0 +1,4 @@
+GET http://localhost:3130/products
+# ?page=20
+# &limit=13
+# &search=search
