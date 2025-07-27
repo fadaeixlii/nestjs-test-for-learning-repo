@@ -1,7 +1,10 @@
 import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
+import { UsersService } from './providers/users.service';
 
 @Controller('users')
 export class UsersController {
+  constructor(private readonly usersService: UsersService) {}
+
   // @Get()
   // public getUsers() {
   //   console.log('getUser with no params ');
@@ -28,6 +31,11 @@ export class UsersController {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       query,
     };
+  }
+
+  @Get()
+  public getUserByEmail(@Query('email') email: string) {
+    this.usersService.getUserByEmail(email);
   }
 
   @Post()
