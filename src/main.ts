@@ -18,6 +18,18 @@ async function bootstrap() {
     .setVersion('1.0')
     .setTitle('Learning project')
     .setDescription('This project for testing nestjs')
+    .addServer(`http://localhost:${process.env.PORT ?? 3130}`)
+    .setLicense('MIT', 'https://opensource.org/license/MIT')
+    .setTermsOfService('https://opensource.org/license/MIT')
+    .addBearerAuth({
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT',
+      name: 'JWT',
+      description: 'Enter JWT token',
+      in: 'header',
+    })
+    .addSecurityRequirements('bearer')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api-docs', app, document);

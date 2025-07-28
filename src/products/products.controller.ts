@@ -5,7 +5,8 @@ import {
   ChangeStatusDTO,
   ChangeStatusParamDTO,
 } from './dto/product.changeStatue.dto';
-
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags('Products')
 @Controller('products')
 export class ProductsController {
   @Post()
