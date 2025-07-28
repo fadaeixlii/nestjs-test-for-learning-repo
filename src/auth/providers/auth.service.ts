@@ -10,7 +10,7 @@ export class AuthService {
   ) {}
 
   isAuth() {
-    return false;
+    return true;
   }
 
   login(authLoginDTO: AuthLoginDTO) {
