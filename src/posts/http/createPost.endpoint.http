@@ -1,0 +1,19 @@
+POST http://localhost:3130/posts
+Content-Type: application/json
+{
+  "title": "Understanding the NestJS Lifecycle",
+  "postType": "post",
+  "slug": "understanding-the-nestjs-lifecycle",
+  "status": "published",
+  "content": "This article explains the request lifecycle in a NestJS app.",
+  "schema": "{\"@context\":\"https://schema.org\",\"@type\":\"BlogPosting\",\"headline\":\"Understanding the NestJS Lifecycle\"}",
+  "featureImageUrl": "https://example.com/images/nestjs-lifecycle.png",
+  "publishedOn": "2025-08-01T10:00:00.000Z",
+  "tags": ["nestjs", "lifecycle", "backend", "nodejs"],
+  "metaOptions": [
+    { "key": "author", "value": "Jane Developer" },
+    { "key": "category", "value": "Backend" },
+    { "key": "language", "value": "en" }
+  ]
+}
+

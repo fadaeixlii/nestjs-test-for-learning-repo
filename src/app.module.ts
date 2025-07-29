@@ -8,6 +8,7 @@ import { OrdersModule } from './orders/orders.module';
 import { ContactsModule } from './contacts/contacts.module';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ResponseInterceptor } from './common/interceptors/response.interceptor';
+import { PostsModule } from './posts/posts.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { ResponseInterceptor } from './common/interceptors/response.interceptor'
     ProductsModule,
     OrdersModule,
     ContactsModule,
+    PostsModule,
   ],
   controllers: [AppController],
   providers: [
