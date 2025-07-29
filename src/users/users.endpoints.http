@@ -1,2 +1,2 @@
 
-GET http://localhost:3130/users?email=mohammad4252@gmail.com&userEmail=mohammad4252@gmail.com
+GET http://localhost:3130/users/4af69451-ab31-4112-abb4-50aab542643e

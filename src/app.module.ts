@@ -6,10 +6,24 @@ import { AuthModule } from './auth/auth.module';
 import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
 import { ContactsModule } from './contacts/contacts.module';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { ResponseInterceptor } from './common/interceptors/response.interceptor';
 
 @Module({
-  imports: [UsersModule, AuthModule, ProductsModule, OrdersModule, ContactsModule],
+  imports: [
+    UsersModule,
+    AuthModule,
+    ProductsModule,
+    OrdersModule,
+    ContactsModule,
+  ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: ResponseInterceptor,
+    },
+  ],
 })
 export class AppModule {}
