@@ -9,9 +9,14 @@ import { ContactsModule } from './contacts/contacts.module';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ResponseInterceptor } from './common/interceptors/response.interceptor';
 import { PostsModule } from './posts/posts.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { TypeOrmConfig } from './config/typeorm.config';
 
 @Module({
   imports: [
+    TypeOrmModule.forRootAsync({
+      useFactory: () => ({ ...TypeOrmConfig }),
+    }),
     UsersModule,
     AuthModule,
     ProductsModule,
