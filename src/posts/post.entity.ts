@@ -1,4 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { PostStatusEnum, PostTypeEnum } from './dto/posts.createPost.dto';
 
 @Entity({ name: 'posts' })
@@ -9,10 +14,20 @@ export class PostEntity {
   @Column({ type: 'varchar', length: 96, nullable: false })
   title!: string;
 
-  @Column({ type: 'enum', enum: PostTypeEnum, nullable: false })
+  @Column({
+    type: 'enum',
+    enum: PostTypeEnum,
+    nullable: false,
+    default: PostTypeEnum.POST,
+  })
   postType!: PostTypeEnum;
 
-  @Column({ type: 'enum', enum: PostStatusEnum, nullable: false })
+  @Column({
+    type: 'enum',
+    enum: PostStatusEnum,
+    nullable: false,
+    default: PostStatusEnum.DRAFT,
+  })
   status!: PostStatusEnum;
 
   @Column({ type: 'varchar', length: 96, nullable: false, unique: true })
@@ -35,4 +50,10 @@ export class PostEntity {
 
   @Column({ type: 'jsonb', nullable: false, default: () => `'[]'` })
   metaOptions!: Array<{ key: string; value: string }>;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt!: Date;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  updatedAt!: Date;
 }
