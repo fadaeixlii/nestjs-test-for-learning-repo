@@ -1,5 +1,5 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { join } from 'path';
+// import { join } from 'path';
 import {
   POSTGRES_DATABASE,
   POSTGRES_DROP_SCHEMA,
@@ -10,6 +10,7 @@ import {
   POSTGRES_SYNCHRONIZE,
   POSTGRES_USER,
 } from 'src/env';
+import { PostEntity } from 'src/posts/post.entity';
 
 export const TypeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -18,8 +19,9 @@ export const TypeOrmConfig: TypeOrmModuleOptions = {
   username: POSTGRES_USER,
   password: POSTGRES_PASSWORD,
   database: POSTGRES_DATABASE,
-  entities: [join(__dirname, '..', '..', '**', '*.entity.{ts,js}')],
-  migrations: [join(__dirname, '..', '..', 'migrations', '*.ts')],
+  entities: [PostEntity],
+  // entities: [join(__dirname, '..', '..', '**', '*.entity.{ts,js}')],
+  // migrations: [join(__dirname, '..', '..', 'migrations', '*.ts')],
   synchronize: POSTGRES_SYNCHRONIZE,
   dropSchema: POSTGRES_DROP_SCHEMA,
   logging: POSTGRES_LOGGING,
